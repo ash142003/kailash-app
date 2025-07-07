@@ -10,7 +10,7 @@ const APP_SHELL_URLS = [
   'style.css',           // <-- UPDATED
   'script.js',           // <-- UPDATED
   'manifest.json',       // <-- UPDATED
-  'images/image.png',    // <-- UPDATED
+  'images/LOGO.png',    // <-- UPDATED
   'images/image1.png'    // <-- UPDATED
 ];
 
