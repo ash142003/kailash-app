@@ -11,7 +11,7 @@ const APP_SHELL_URLS = [
   'script.js',           // <-- UPDATED
   'manifest.json',       // <-- UPDATED
   'images/LOGO.png',    // <-- UPDATED
-  'images/image1.png'    // <-- UPDATED
+  'images/LOGO.png'    // <-- UPDATED
 ];
 
 // The 'install' event.
