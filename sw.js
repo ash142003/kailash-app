@@ -2,20 +2,17 @@
 const CACHE_NAME = 'kailash-store-v2';
 
 // A list of all the essential files your app needs to work offline.
-// All starting slashes have been removed to make paths relative.
 const APP_SHELL_URLS = [
-  './',                  // <-- UPDATED
-  'index.html',          // <-- UPDATED
-  'add-product.html',    // <-- UPDATED
-  'style.css',           // <-- UPDATED
-  'script.js',           // <-- UPDATED
-  'manifest.json',       // <-- UPDATED
-  'images/LOGO.png',    // <-- UPDATED
-  'images/LOGO.png'    // <-- UPDATED
+  './',
+  'index.html',
+  'add-product.html',
+  'style.css',
+  'script.js',
+  'manifest.json',
+  'images/LOGO.png'
 ];
 
 // The 'install' event.
-// This is where we download and cache all the files in our APP_SHELL_URLS list.
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -27,9 +24,6 @@ self.addEventListener('install', (event) => {
 });
 
 // The 'fetch' event.
-// This event happens every time the app requests a resource (like a CSS file or an image).
-// We check if we have it in our cache first. If we do, we serve it from the cache.
-// If not, we fetch it from the network.
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request)
@@ -45,7 +39,6 @@ self.addEventListener('fetch', (event) => {
 });
 
 // The 'activate' event.
-// This is where we clean up old, unused caches (like v1).
 self.addEventListener('activate', (event) => {
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
