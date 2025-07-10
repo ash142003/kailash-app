@@ -8,8 +8,8 @@ const URLS_TO_CACHE = [
   '/kailash-app/index.html',
   '/kailash-app/style.css',
   '/kailash-app/manifest.json',
-  '/kailash-app/icons/icon-192x192.png',
-  '/kailash-app/icons/icon-512x512.png'
+  '/kailash-app/icons/pic.png',
+  '/kailash-app/icons/pic.png'
 ];
 
 // 1. Installation: Caches the core app shell
