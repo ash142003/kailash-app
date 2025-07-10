@@ -2,42 +2,25 @@
   "name": "KAILASH",
   "short_name": "KAILASH",
   "description": "Traditional Elegance. Carefully curated collections sourced from trusted vendors.",
+  
   "start_url": "/kailash-app/",
   "scope": "/kailash-app/",
   "id": "/kailash-app/",
   "display": "standalone",
+  
   "background_color": "#232f3e",
   "theme_color": "#ff9900",
   "orientation": "portrait-primary",
   "lang": "en-US",
+  "dir": "ltr",
 
   "icons": [
-    // --- 'ANY' ICONS FOR GENERAL USE (FAVICON, IOS, ETC.) ---
-    {
-      "src": "/kailash-app/icons/icon-72x72.png",
-      "type": "image/png",
-      "sizes": "72x72",
-      "purpose": "any"
-    },
-    {
-      "src": "/kailash-app/icons/icon-96x96.png",
-      "type": "image/png",
-      "sizes": "96x96",
-      "purpose": "any"
-    },
-    {
-      "src": "/kailash-app/icons/icon-128x128.png",
-      "type": "image/png",
-      "sizes": "128x128",
-      "purpose": "any"
-    },
     {
       "src": "/kailash-app/icons/icon-192x192.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any"
     },
-    // --- 'MASKABLE' ICON SPECIFICALLY FOR ANDROID ---
     {
       "src": "/kailash-app/icons/icon-512x512.png",
       "type": "image/png",
@@ -78,5 +61,11 @@
       "url": "/kailash-app/add-product.html",
       "icons": [{ "src": "/kailash-app/icons/icon-96x96.png", "sizes": "96x96" }]
     }
-  ]
+  ],
+
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  
+  "prefer_related_applications": false
 }
