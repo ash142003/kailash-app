@@ -1,38 +1,53 @@
-// Define a name for the cache
-const CACHE_NAME = 'kailash-app-cache-v1';
+// A more robust service worker
 
-// List all the essential files with the CORRECT paths
+const CACHE_NAME = 'kailash-app-cache-v2'; // Note: I changed the version number
+
+// This list should contain the absolute core files needed for the app shell to load
 const URLS_TO_CACHE = [
   '/kailash-app/',
   '/kailash-app/index.html',
-  '/kailash-app/download.html',
-  '/kailash-app/add-product.html',
   '/kailash-app/style.css',
-  '/kailash-app/script.js',
   '/kailash-app/manifest.json',
-  '/kailash-app/icons/icon-512x512.png',
-  '/kailash-app/icons/icon-192x192.png'
-  // Add more image paths here if you want them to work offline
+  '/kailash-app/icons/icon-192x192.png',
+  '/kailash-app/icons/icon-512x512.png'
 ];
 
-// When the service worker is installed, open the cache and add the files
+// 1. Installation: Caches the core app shell
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
-        console.log('Opened cache');
+        console.log('Opened cache and caching app shell');
         return cache.addAll(URLS_TO_CACHE);
       })
   );
 });
 
-// When the browser requests a file, check the cache first
+// 2. Fetch: Tries network first, then falls back to cache
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // If the file is in the cache, return it. Otherwise, fetch it from the network.
-        return response || fetch(event.request);
-      })
+    // Try to get the resource from the network
+    fetch(event.request).catch(() => {
+      // If the network request fails (e.g., user is offline),
+      // try to get it from the cache.
+      return caches.match(event.request);
+    })
+  );
+});
+
+// 3. Activation: Cleans up old caches
+self.addEventListener('activate', (event) => {
+  const cacheWhitelist = [CACHE_NAME];
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cacheName) => {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            console.log('Deleting old cache:', cacheName);
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
   );
 });
