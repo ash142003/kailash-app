@@ -48,12 +48,12 @@
     {
       "name": "View Cart",
       "url": "/kailash-app/#cart",
-      "icons": [{ "src": "/kailash-app/icons/icon-192x192.png", "sizes": "96x96" }]
+      "icons": [{ "src": "/kailash-app/icons/192x192.png", "sizes": "96x96" }]
     },
     {
       "name": "Admin Panel",
       "url": "/kailash-app/add-product.html",
-      "icons": [{ "src": "/kailash-app/icons/icon-192x192.png", "sizes": "96x96" }]
+      "icons": [{ "src": "/kailash-app/icons/192x192.png", "sizes": "96x96" }]
     }
   ],
 
