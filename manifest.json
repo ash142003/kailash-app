@@ -16,13 +16,13 @@
 
   "icons": [
     {
-      "src": "/kailash-app/icons/icon-192x192.png",
+      "src": "/kailash-app/icons/192x192.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any"
     },
     {
-      "src": "/kailash-app/icons/icon-512x512.png",
+      "src": "/kailash-app/icons/512x512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
