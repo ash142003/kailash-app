@@ -16,13 +16,13 @@
 
   "icons": [
     {
-      "src": "/kailash-app/images/192x192.png.png",
+      "src": "/kailash-app/icons/icon-192x192.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any"
     },
     {
-      "src": "/kailash-app/images/512x512.png",
+      "src": "/kailash-app/icons/icon-512x512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
@@ -35,12 +35,6 @@
       "sizes": "1080x1920",
       "type": "image/png",
       "label": "Welcome to KAILASH"
-    },
-    {
-      "src": "/kailash-app/screenshots/screenshot2.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "label": "Browse our product collections"
     }
   ],
   
@@ -54,12 +48,12 @@
     {
       "name": "View Cart",
       "url": "/kailash-app/#cart",
-      "icons": [{ "src": "/kailash-app/icons/icon-96x96.png", "sizes": "96x96" }]
+      "icons": [{ "src": "/kailash-app/icons/icon-192x192.png", "sizes": "96x96" }]
     },
     {
       "name": "Admin Panel",
       "url": "/kailash-app/add-product.html",
-      "icons": [{ "src": "/kailash-app/icons/icon-96x96.png", "sizes": "96x96" }]
+      "icons": [{ "src": "/kailash-app/icons/icon-192x192.png", "sizes": "96x96" }]
     }
   ],
 
