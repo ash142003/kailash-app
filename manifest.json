@@ -10,86 +10,39 @@
   "theme_color": "#ff9900",
   "orientation": "portrait-primary",
   "lang": "en-US",
+  "dir": "auto",
 
   "launch_handler": {
     "client_mode": "focus-existing"
   },
+  
+  "prefer_related_applications": false,
 
   "icons": [
-    {
-      "src": "icons/icon-72x72.png",
-      "type": "image/png",
-      "sizes": "72x72"
-    },
-    {
-      "src": "icons/icon-96x96.png",
-      "type": "image/png",
-      "sizes": "96x96"
-    },
-    {
-      "src": "icons/icon-128x128.png",
-      "type": "image/png",
-      "sizes": "128x128"
-    },
-    {
-      "src": "icons/icon-144x144.png",
-      "type": "image/png",
-      "sizes": "144x144"
-    },
-    {
-      "src": "icons/icon-152x152.png",
-      "type": "image/png",
-      "sizes": "152x152"
-    },
-    {
-      "src": "icons/icon-192x192.png",
-      "type": "image/png",
-      "sizes": "192x192",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/icon-512x512.png",
-      "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "maskable"
-    }
+    { "src": "icons/icon-72x72.png", "type": "image/png", "sizes": "72x72" },
+    { "src": "icons/icon-96x96.png", "type": "image/png", "sizes": "96x96" },
+    { "src": "icons/icon-128x128.png", "type": "image/png", "sizes": "128x128" },
+    { "src": "icons/icon-144x144.png", "type": "image/png", "sizes": "144x144" },
+    { "src": "icons/icon-152x152.png", "type": "image/png", "sizes": "152x152" },
+    { "src": "icons/icon-192x192.png", "type": "image/png", "sizes": "192x192", "purpose": "any" },
+    { "src": "icons/icon-512x512.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
   ],
 
   "screenshots": [
-    {
-      "src": "screenshots/screenshot1.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "label": "Welcome to KAILASH"
-    },
-    {
-      "src": "screenshots/screenshot2.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "label": "Browse our product collections"
-    }
+    { "src": "screenshots/screenshot1.png", "sizes": "1080x1920", "type": "image/png", "label": "Welcome to KAILASH" },
+    { "src": "screenshots/screenshot2.png", "sizes": "1080x1920", "type": "image/png", "label": "Browse our product collections" }
   ],
   
-  "categories": [
-    "shopping",
-    "lifestyle",
-    "fashion"
-  ],
+  "categories": [ "shopping", "lifestyle", "fashion" ],
 
   "shortcuts": [
     {
-      "name": "View Cart",
-      "short_name": "Cart",
-      "description": "View items in your shopping cart",
-      "url": "/kailash-app/#cart",
-      "icons": [{ "src": "icons/icon-96x96.png", "sizes": "96x96" }]
+      "name": "View Cart", "short_name": "Cart", "description": "View items in your shopping cart",
+      "url": "/kailash-app/#cart", "icons": [{ "src": "icons/icon-96x96.png", "sizes": "96x96" }]
     },
     {
-      "name": "Admin Panel",
-      "short_name": "Admin",
-      "description": "Manage store products",
-      "url": "/kailash-app/add-product.html",
-      "icons": [{ "src": "icons/icon-96x96.png", "sizes": "96x96" }]
+      "name": "Admin Panel", "short_name": "Admin", "description": "Manage store products",
+      "url": "/kailash-app/add-product.html", "icons": [{ "src": "icons/icon-96x96.png", "sizes": "96x96" }]
     }
   ]
 }
