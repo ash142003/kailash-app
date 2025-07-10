@@ -11,6 +11,10 @@
   "orientation": "portrait-primary",
   "lang": "en-US",
 
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+
   "icons": [
     {
       "src": "icons/icon-72x72.png",
