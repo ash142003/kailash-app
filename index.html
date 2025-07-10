@@ -89,18 +89,18 @@
     <script src="script.js"></script>
 
     <!-- PWA REGISTER SCRIPT START - THIS IS THE CORRECTED VERSION -->
-    <script>
-      if ('serviceWorker' in navigator) {
-        // Use the full, correct path for GitHub Pages
-        const swUrl = '/kailash-ecommerce/sw.js';
-        navigator.serviceWorker.register(swUrl)
-          .then(registration => {
-            console.log('Service Worker registered with scope: ', registration.scope);
-          }).catch(error => {
-            console.log('Service Worker registration failed: ', error);
-          });
-      }
-    </script>
+ <script>
+  if ('serviceWorker' in navigator) {
+    // Use the full path including the repository name
+    const swUrl = '/kailash-app/sw.js';
+    navigator.serviceWorker.register(swUrl)
+      .then(registration => {
+        console.log('Service Worker registered with scope: ', registration.scope);
+      }).catch(error => {
+        console.log('Service Worker registration failed: ', error);
+      });
+  }
+</script>
     <!-- PWA REGISTER SCRIPT END -->
 </body>
 </html>
