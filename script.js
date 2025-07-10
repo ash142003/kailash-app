@@ -195,25 +195,69 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    const sendWhatsAppOrder = (name, phone, address) => {
-        const whatsappNumber = '917598242759';
-        let message = `*NEW ORDER from KAILASH*\n\n*Customer:* ${name}\n*Phone:* ${phone}\n\n*Items:*\n----------------------\n`;
+    // --- THIS IS THE NEW, UPGRADED FUNCTION ---
+    const sendWhatsAppOrder = async (name, phone, address) => {
+        const total = calculateTotal();
+        const orderData = {
+            name,
+            phone,
+            address,
+            cart: { ...cart },
+            total,
+            products: [...products]
+        };
         
-        Object.entries(cart).forEach(([key, item]) => {
-            const p = products.find(p => p.id === item.productId);
+        // Check if the browser supports modern PWA features
+        if ('serviceWorker' in navigator && 'SyncManager' in window) {
+            try {
+                // Get the service worker registration
+                const swReg = await navigator.serviceWorker.ready;
+                // Save the order to the offline database using idb-keyval
+                await idbKeyval.set('offline-order', orderData);
+                // Register the background sync task
+                await swReg.sync.register('send-order');
+
+                // Give immediate feedback to the user! This is critical.
+                alert('Order saved! It will be sent automatically when you are back online.');
+
+                // Clear the cart and update the UI now
+                cart = {};
+                saveCart();
+                renderUI();
+                
+            } catch (error) {
+                console.error('Could not schedule sync, falling back to direct send:', error);
+                // If sync fails, try to send it directly (the old way)
+                sendDirectly(orderData);
+            }
+        } else {
+            // Fallback for older browsers
+            console.log('Background Sync not supported, sending directly.');
+            sendDirectly(orderData);
+        }
+    };
+
+    // Helper function for the old method, to avoid repeating code
+    function sendDirectly(orderData) {
+        const whatsappNumber = '917598242759';
+        let message = `*NEW ORDER from KAILASH*\n\n*Customer:* ${orderData.name}\n*Phone:* ${orderData.phone}\n\n*Items:*\n----------------------\n`;
+        
+        Object.entries(orderData.cart).forEach(([key, item]) => {
+            const p = orderData.products.find(p => p.id === item.productId);
             if (p) {
                 message += `• ${p.name}${item.size ? `(${item.size})` : ''} x ${item.quantity} = ₹${(p.price * item.quantity).toFixed(2)}\n`;
                 message += `  📸 Image: ${p.image}\n`;
             }
         });
 
-        message += `----------------------\n*Total Amount:* ₹${calculateTotal()}\n\n*Shipping Address:*\n${address}`;
+        message += `----------------------\n*Total Amount:* ₹${orderData.total}\n\n*Shipping Address:*\n${orderData.address}`;
         window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
         
         cart = {};
         saveCart();
         renderUI();
-    };
+    }
+    // --- END OF NEW, UPGRADED FUNCTION ---
 
     // --- Event Listeners and Initialization ---
     const debounce = (func, delay) => { let t; return (...args) => { clearTimeout(t); t = setTimeout(() => func.apply(this, args), delay); }; };
