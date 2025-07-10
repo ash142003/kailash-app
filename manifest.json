@@ -1,0 +1,43 @@
+{
+  "name": "KAILASH Traditional Store",
+  "short_name": "KAILASH",
+  "description": "Traditional elegance, carefully curated collections sourced from trusted vendors.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#232f3e",
+  "theme_color": "#ff9900",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "images/LOGO.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/LOGO.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+   "screenshots": [
+    {
+      "src": "screenshots/screenshot1.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Welcome to KAILASH"
+    },
+    {
+      "src": "screenshots/screenshot1.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Welcome to KAILASH"
+    }
+  ],
+  "categories": [
+    "shopping",
+    "fashion"
+  ]
+}
